@@ -1,2 +1,0 @@
-# Cheerio
-News scraper

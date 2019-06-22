@@ -2,24 +2,47 @@
 <html lang="en-us">
   <head>
     <meta charset="UTF-8">
-    <title>Custom Method Exercise</title>
+    <title>Scraping With Mongoose</title>
     <style>
-      input {
+      body { background-color: #F2F6D0 }
+      #wrapper {
+        width: 960px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-top: 5%;
+      }
+      #articles {
+        display: inline-block;
+        overflow: auto;
+        width: 60%;
+        height: 700px;
+      }
+      #notes {
+        float: right;
+        width: 30%;
+      }
+      textarea, input {
         display: block;
+        width: 100%;
+        background-color: #FCF5C7;
+      }
+      input {
         height: 36px;
-        margin: 5px;
         font-size: 24px;
+      }
+      textarea {
+        height: 200px;
+        font-size: 18px;
       }
     </style>
   </head>
   <body>
-    <form action="/submit" method="post">
-      <input type="text" name="username" placeholder="username">
-      <input type="text" name="firstName" placeholder="firstname">
-      <input type="text" name="lastName" placeholder="lastname">
-      <input type="password" name="password" placeholder="password">
-      <input type="text" name ="email" placeholder="email">
-      <input type="submit">
-    </form>
+    <div id="wrapper">
+      <!-- <h1>Note Scraper</h1> -->
+      <div id="articles"></div>
+      <div id="notes"></div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="app.js"></script>
   </body>
 </html>
