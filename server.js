@@ -46,14 +46,26 @@ app.get("/scrape", function(req, res) {
       var result = {};
 
       // Add the text and href of every link, and save them as properties of the result object
-      result.title = $(this)
-        .children("div").children("h3").children("a.title");
-      var tit = result.title.get("title");
+      var tit = $(this)
+      .children("div").children("h3").children("a");
+      
+      tit = tit.attr('title');
+      result.title = tit;
+      // result.title = $(this)
+      //   .children("div").children("h3").children("a");
+      // result.title = result.title.attr('title');
+      // var tit = result.title.get('title')
+      // var tit = result.title.get("title")
         // .text();
-      // result.link = $(this)
+      var lnk = $(this)
+        .children("div").children("h3").children("a");
+      // lnk = lnk.attr('href');
+      lnk.text(lnk.attr("href"));
+      result.link = lnk
       //   .children("a")
       //   .attr("href");
-      console.log(result.title)
+      console.log(tit);
+      // console.log(tit);
       // Create a new Article using the `result` object built from scraping
       db.Article.create(result)
         .then(function(dbArticle) {
@@ -67,7 +79,7 @@ app.get("/scrape", function(req, res) {
     });
 
     // Send a message to the client
-    res.send("Scrape Complete MFER");
+    res.send("Scrape Complete");
   });
 });
 
